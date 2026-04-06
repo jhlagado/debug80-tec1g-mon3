@@ -1,0 +1,8 @@
+# Build output
+build/
+
+# Local tooling
+.debug80/
+
+# OS
+.DS_Store

@@ -1,0 +1,8 @@
+; Shared GLCD control-character definitions used by glcd_library.z80
+CR:     .equ 0DH                 ; Carriage Return
+LF:     .equ 0AH                 ; Line Feed
+BS:     .equ 08H                 ; Backspace
+BKSP:   .equ 08H                 ; Backspace (alias)
+HT:     .equ 09H                 ; Horizontal Tab
+TAB:    .equ 09H                 ; Horizontal Tab (alias)
+SPACE:  .equ 20H                 ; Space
