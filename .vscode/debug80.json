@@ -30,10 +30,7 @@
         ],
         "appStart": 16384,
         "entry": 0,
-        "romHex": "../roms/tec1g/mon-3/mon-3.bin",
-        "extraListings": [
-          "../roms/tec1g/mon-3/mon-3.lst"
-        ],
+        "romHex": "roms/tec1g/mon-3/mon-3.bin",
         "uiVisibility": {
           "serial": true,
           "glcd": false,
@@ -70,10 +67,7 @@
         ],
         "appStart": 16384,
         "entry": 0,
-        "romHex": "../roms/tec1g/mon-3/mon-3.bin",
-        "extraListings": [
-          "../roms/tec1g/mon-3/mon-3.lst"
-        ],
+        "romHex": "roms/tec1g/mon-3/mon-3.bin",
         "uiVisibility": {
           "lcd": true,
           "serial": false,
@@ -111,10 +105,7 @@
         ],
         "appStart": 16384,
         "entry": 0,
-        "romHex": "../roms/tec1g/mon-3/mon-3.bin",
-        "extraListings": [
-          "../roms/tec1g/mon-3/mon-3.lst"
-        ],
+        "romHex": "roms/tec1g/mon-3/mon-3.bin",
         "uiVisibility": {
           "glcd": true,
           "serial": false,
@@ -151,10 +142,7 @@
         ],
         "appStart": 16384,
         "entry": 0,
-        "romHex": "../roms/tec1g/mon-3/mon-3.bin",
-        "extraListings": [
-          "../roms/tec1g/mon-3/mon-3.lst"
-        ],
+        "romHex": "roms/tec1g/mon-3/mon-3.bin",
         "uiVisibility": {
           "glcd": true,
           "serial": false,
@@ -191,10 +179,7 @@
         ],
         "appStart": 16384,
         "entry": 0,
-        "romHex": "../roms/tec1g/mon-3/mon-3.bin",
-        "extraListings": [
-          "../roms/tec1g/mon-3/mon-3.lst"
-        ],
+        "romHex": "roms/tec1g/mon-3/mon-3.bin",
         "uiVisibility": {
           "glcd": true,
           "serial": false,
@@ -231,10 +216,7 @@
         ],
         "appStart": 16384,
         "entry": 0,
-        "romHex": "../roms/tec1g/mon-3/mon-3.bin",
-        "extraListings": [
-          "../roms/tec1g/mon-3/mon-3.lst"
-        ],
+        "romHex": "roms/tec1g/mon-3/mon-3.bin",
         "uiVisibility": {
           "glcd": true,
           "serial": false,
@@ -244,7 +226,7 @@
     },
     "glcd-3d": {
       "asm": "src/glcd-3d.asm",
-      "sourceFile": "src/lcd-test.asm",
+      "sourceFile": "src/matrix-demo.asm",
       "sourceRoots": [
         "src"
       ],
@@ -271,10 +253,7 @@
         ],
         "appStart": 16384,
         "entry": 0,
-        "romHex": "../roms/tec1g/mon-3/mon-3.bin",
-        "extraListings": [
-          "../roms/tec1g/mon-3/mon-3.lst"
-        ],
+        "romHex": "roms/tec1g/mon-3/mon-3.bin",
         "uiVisibility": {
           "glcd": true,
           "serial": false,
@@ -311,10 +290,7 @@
         ],
         "appStart": 16384,
         "entry": 0,
-        "romHex": "../roms/tec1g/mon-3/mon-3.bin",
-        "extraListings": [
-          "../roms/tec1g/mon-3/mon-3.lst"
-        ],
+        "romHex": "roms/tec1g/mon-3/mon-3.bin",
         "uiVisibility": {
           "matrix": true,
           "serial": false,
