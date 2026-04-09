@@ -1,14 +1,14 @@
 {
-  "defaultTarget": "serial",
+  "defaultTarget": "matrix",
   "targets": {
-    "serial": {
-      "asm": "src/serial.asm",
-      "sourceFile": "src/glcd-maze.asm",
+    "matrix": {
+      "asm": "src/matrix.zax",
+      "sourceFile": "src/matrix.zax",
       "sourceRoots": [
         "src"
       ],
       "outputDir": "build",
-      "artifactBase": "serial",
+      "artifactBase": "matrix",
       "platform": "tec1g",
       "tec1g": {
         "regions": [
@@ -32,11 +32,12 @@
         "entry": 0,
         "romHex": "roms/tec1g/mon-3/mon-3.bin",
         "uiVisibility": {
-          "serial": true,
+          "serial": false,
           "glcd": false,
-          "matrix": false
+          "matrix": true
         }
-      }
+      },
+      "assembler": "zax"
     },
     "lcd-test": {
       "asm": "src/lcd-test.asm",
@@ -269,6 +270,43 @@
       ],
       "outputDir": "build",
       "artifactBase": "matrix-demo",
+      "platform": "tec1g",
+      "tec1g": {
+        "regions": [
+          {
+            "start": 0,
+            "end": 2047,
+            "kind": "rom"
+          },
+          {
+            "start": 2048,
+            "end": 32767,
+            "kind": "ram"
+          },
+          {
+            "start": 49152,
+            "end": 65535,
+            "kind": "rom"
+          }
+        ],
+        "appStart": 16384,
+        "entry": 0,
+        "romHex": "roms/tec1g/mon-3/mon-3.bin",
+        "uiVisibility": {
+          "matrix": true,
+          "serial": false,
+          "glcd": false
+        }
+      }
+    },
+    "matrix-demo-rgb": {
+      "asm": "src/matrix-demo-rgb.asm",
+      "sourceFile": "src/matrix-demo-rgb.asm",
+      "sourceRoots": [
+        "src"
+      ],
+      "outputDir": "build",
+      "artifactBase": "matrix-demo-rgb",
       "platform": "tec1g",
       "tec1g": {
         "regions": [
