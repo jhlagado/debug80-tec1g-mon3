@@ -1,0 +1,64 @@
+; ZAX port of matrix-demo.asm — same control flow and ports.
+; Bitmap uses ld a,(hl) with HL walking the interleaved R,G,B rows.
+; main() is emitted first so the image entry at $4000 is the program (not delay).
+
+const PORT_ROW = $05
+const PORT_RED = $06
+const PORT_GREEN = $F8
+const PORT_BLUE = $F9
+const ROW_COUNT = 8
+const ROLL_FRAMES = 8
+
+; RAM layout: code @ 0x4000, bitmap @ 0x4100 (24 bytes).
+section data bitmap at $4100
+  bitmap:
+  db 60, 60, 0, 66, 66, 0, 165, 165, 0, 129, 129, 0, 165, 165, 0, 153, 153, 0, 66, 66, 0, 60, 60, 0
+end
+
+section code demo at $4000
+
+export func main(): AF, BC, DE, HL 
+  ld c, 1
+  ld e, ROLL_FRAMES
+frame:
+  ld hl, bitmap
+  ld d, c
+  ld b, ROW_COUNT
+rowlp:
+  xor a
+  out (PORT_ROW), a
+  ld a, (hl)
+  out (PORT_RED), a
+  inc hl
+  ld a, (hl)
+  out (PORT_GREEN), a
+  inc hl
+  ld a, (hl)
+  out (PORT_BLUE), a
+  inc hl
+  ld a, d
+  out (PORT_ROW), a
+  call delay
+  rlc d
+  djnz rowlp
+
+  dec e
+  jr nz, frame
+  ld e, ROLL_FRAMES
+  rlc c
+  jr frame
+end
+
+func delay(): AF, BC, DE, HL
+  push bc
+  ld b, 1
+d1:
+  ld c, $FF
+d2:
+  dec c
+  jr nz, d2
+  djnz d1
+  pop bc
+  ret
+end
+end

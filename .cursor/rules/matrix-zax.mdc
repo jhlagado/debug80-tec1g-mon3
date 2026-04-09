@@ -1,0 +1,12 @@
+---
+description: Canonical MON-3 matrix ZAX program for this repo
+alwaysApply: true
+---
+
+# Matrix demo — single source of truth
+
+- **ZAX entry (default app):** `src/matrix.zax` — the RGB 8×8 matrix program. Use this path when editing, assembling, or debugging the matrix demo unless the user explicitly names another file.
+- **Asm80 reference (same algorithm):** `src/matrix-demo.asm`
+- **Debug80:** `.vscode/debug80.json` uses `defaultTarget` `matrix` with `asm` / `sourceFile` both `src/matrix.zax`; build artifacts are `build/matrix.*`.
+
+Do not substitute `serial`, `examples/`, or other repos when the user means this matrix program.
