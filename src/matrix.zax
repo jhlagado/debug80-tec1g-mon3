@@ -8,16 +8,24 @@ const PORT_GREEN = $F8
 const PORT_BLUE = $F9
 const ROW_COUNT = 8
 const ROLL_FRAMES = 8
+const DELAY_COUNT = $01FF
 
 ; RAM layout: code @ 0x4000, bitmap @ 0x4100 (24 bytes).
 section data bitmap at $4100
   bitmap:
-  db 60, 60, 0, 66, 66, 0, 165, 165, 0, 129, 129, 0, 165, 165, 0, 153, 153, 0, 66, 66, 0, 60, 60, 0
+  db %00111100, %00000000, %11000011
+  db %01000010, %00000000, %10111101
+  db %10100101, %00100100, %01111110
+  db %10000001, %00000000, %01111110
+  db %10000001, %00100100, %01011010
+  db %10000001, %00011000, %01100110
+  db %01000010, %00000000, %10111101
+  db %00111100, %00000000, %11000011
 end
 
 section code demo at $4000
 
-export func main(): AF, BC, DE, HL 
+export func main(): AF, BC, DE, HL
   ld c, 1
   ld e, ROLL_FRAMES
 frame:
@@ -25,8 +33,6 @@ frame:
   ld d, c
   ld b, ROW_COUNT
 rowlp:
-  xor a
-  out (PORT_ROW), a
   ld a, (hl)
   out (PORT_RED), a
   inc hl
@@ -49,16 +55,16 @@ rowlp:
   jr frame
 end
 
-func delay(): AF, BC, DE, HL
-  push bc
-  ld b, 1
-d1:
-  ld c, $FF
-d2:
-  dec c
-  jr nz, d2
-  djnz d1
-  pop bc
+func delay()
+  ld de, DELAY_COUNT
+  ld a, d
+  or e
+  while NZ
+    dec de
+    ld a, d
+    or e
+  end
   ret
 end
+
 end
