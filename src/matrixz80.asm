@@ -45,7 +45,7 @@ main:
 ld c, $01
 ld e, $08
 frame:
-DB $21, $00, $41   <--- why no opcodes, why no label
+DB $21, $00, $41
 ld d, c
 ld b, $08
 rowlp:
@@ -62,14 +62,14 @@ out ($F9), a
 inc hl
 ld a, d
 out ($05), a
-DB $CD, $2C, $40    <--- why no opcodes, why no label
+DB $CD, $2C, $40
 rlc d
-DB $10, $E7   <--- why no opcodes
+DB $10, $E7   
 dec e
-DB $20, $DE   <--- why no opcodes
+DB $20, $DE   
 ld e, $08
 rlc c
-DB $18, $D8   <--- why no opcodes
+DB $18, $D8   
 ; ZAX: func main end
 ; ZAX: func delay begin
 delay:
@@ -79,8 +79,8 @@ d1:
 ld c, $FF
 d2:
 dec c
-DB $20, $FD   <--- why no opcodes
-DB $10, $F9   <--- why no opcodes
+DB $20, $FD   
+DB $10, $F9   
 pop bc
 ret
 ; ZAX: func delay end

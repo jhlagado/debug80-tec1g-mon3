@@ -1,0 +1,5 @@
+{
+  "files.associations": {
+    "*.z80": "z80-asm"
+  }
+}

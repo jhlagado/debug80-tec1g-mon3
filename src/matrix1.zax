@@ -1,67 +1,88 @@
-; TEC-1G 8x8 RGB matrix demo (MON-3 layout, RAM @ 0x4000).
-; TEC-Expander 8x8 RGB:
-;     OUT 0x05 = row select (0 = no row / blank between updates)
-;     OUT 0x06 = red columns
-;     OUT 0xF8 = green columns
-;     OUT 0xF9 = blue columns
-;
-; Scan sequence per line: row off -> latch R,G,B column bytes -> row on -> hold.
-; Bitmap layout: 24 bytes interleaved by row — for each row i:
-;     (R_i, G_i, B_i) so one pointer walk loads a full colour row in order.
-;
-; Pattern below: classic smiley shape; face is yellow (R+G), no blue on the face.
+; ZAX port of matrix-demo.asm — same control flow and ports.
+; Bitmap: HL walks interleaved R,G,B rows; entry is main @ $4000.
 
 const PORT_ROW = $05
 const PORT_RED = $06
 const PORT_GREEN = $F8
 const PORT_BLUE = $F9
+
 const ROW_COUNT = 8
-const ROLL_FRAMES = $FF
-const BYTES_PER_ROW = 3
+const ROLL_FRAMES = 8
 
-section code tec_rgb at $4000
+const DELAY_OUTER = 1
+const DELAY_INNER = $FF
 
-  export func main()
-    ld c, $01
-    ld de, ROLL_FRAMES
-  frame:
+op rgb_latch_from_hl()
+  ld a, (hl)
+  out (PORT_RED), a
+  inc hl
+  ld a, (hl)
+  out (PORT_GREEN), a
+  inc hl
+  ld a, (hl)
+  out (PORT_BLUE), a
+  inc hl
+end
+
+section data bitmap at $4100
+  bitmap: byte[24] = {
+    %00111100, %00000000, %11000011, %01000010, %00000000, %10111101,
+    %10100101, %00100100, %01111110, %10000001, %00000000, %01111110,
+    %10000001, %00100100, %01011010, %10000001, %00011000, %01100110,
+    %01000010, %00000000, %10111101, %00111100, %00000000, %11000011
+  }
+end
+
+section code demo at $4000
+
+export func main(): AF, BC, DE, HL
+  ld c, 1
+  ld e, ROLL_FRAMES
+  repeat
     ld hl, bitmap
-    push de
     ld d, c
     ld b, ROW_COUNT
-  rowlp:
-    xor a
-    out (PORT_ROW), a  
-    ld a, (hl)
-    out (PORT_RED), a
-    inc hl
-    ld a, (hl)
-    out (PORT_GREEN), a
-    inc hl
-    ld a, (hl)
-    out (PORT_BLUE), a
-    inc hl
-    ld a, d
-    out (PORT_ROW), a
-    rlc d
-    djnz rowlp
-    pop de
-    dec de
-    ld a, e
-    or d
-    jr nz, frame
-    ld e, ROLL_FRAMES
-    rlc c
-    jr frame
-  end
+    ld a, b
+    or a
+    while NZ
+      rgb_latch_from_hl
+      ld a, d
+      out (PORT_ROW), a
+      call delay
+      rlc d
+      dec b
+      ld a, b
+      or a
+    end
+    dec e
+    if Z
+      ld e, ROLL_FRAMES
+      rlc c
+    end
+    ld a, 1
+    or a
+  until Z
+end
 
-bitmap:
-  db %00111100, %00000000, %11000011
-  db %01000010, %00000000, %10111101
-  db %10100101, %00100100, %01111110
-  db %10000001, %00000000, %01111110
-  db %10000001, %00100100, %01011010
-  db %10000001, %00011000, %01100110
-  db %01000010, %00000000, %10111101
-  db %00111100, %00000000, %11000011
+func delay(): AF, BC, DE, HL
+  push bc
+  ld b, DELAY_OUTER
+  ld a, b
+  or a
+  while NZ
+    ld c, DELAY_INNER
+    ld a, c
+    or a
+    while NZ
+      dec c
+      ld a, c
+      or a
+    end
+    dec b
+    ld a, b
+    or a
+  end
+  pop bc
+  ret
+end
 end

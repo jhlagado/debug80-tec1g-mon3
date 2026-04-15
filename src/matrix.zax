@@ -7,7 +7,7 @@ const PORT_RED = $06
 const PORT_GREEN = $F8
 const PORT_BLUE = $F9
 const ROW_COUNT = 8
-const ROLL_FRAMES = 8
+const ROLL_FRAMES = 2
 const DELAY_COUNT = $01FF
 
 ; RAM layout: code @ 0x4000, bitmap @ 0x4100 (24 bytes).
