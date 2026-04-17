@@ -36,10 +36,14 @@
           "serial": false,
           "glcd": false,
           "matrix": true
-        }
+        },
+        "extraListings": [
+          "roms/tec1g/mon-3/mon3.lst"
+        ]
       },
       "assembler": "zax",
-      "stopOnEntry": true
+      "stopOnEntry": false,
+      "profile": "mon3"
     },
     "lcd-test": {
       "asm": "src/lcd-test.asm",
@@ -77,8 +81,12 @@
           "serial": false,
           "glcd": false,
           "matrix": false
-        }
-      }
+        },
+        "extraListings": [
+          "roms/tec1g/mon-3/mon3.lst"
+        ]
+      },
+      "profile": "mon3"
     },
     "glcd-demo": {
       "asm": "src/glcd-demo.asm",
@@ -115,8 +123,12 @@
           "glcd": true,
           "serial": false,
           "matrix": false
-        }
-      }
+        },
+        "extraListings": [
+          "roms/tec1g/mon-3/mon3.lst"
+        ]
+      },
+      "profile": "mon3"
     },
     "glcd-mad": {
       "asm": "src/glcd-mad.asm",
@@ -153,8 +165,12 @@
           "glcd": true,
           "serial": false,
           "matrix": false
-        }
-      }
+        },
+        "extraListings": [
+          "roms/tec1g/mon-3/mon3.lst"
+        ]
+      },
+      "profile": "mon3"
     },
     "glcd-maze": {
       "asm": "src/glcd-maze.asm",
@@ -191,8 +207,12 @@
           "glcd": true,
           "serial": false,
           "matrix": false
-        }
-      }
+        },
+        "extraListings": [
+          "roms/tec1g/mon-3/mon3.lst"
+        ]
+      },
+      "profile": "mon3"
     },
     "glcd-text": {
       "asm": "src/glcd-text.asm",
@@ -229,8 +249,12 @@
           "glcd": true,
           "serial": false,
           "matrix": false
-        }
-      }
+        },
+        "extraListings": [
+          "roms/tec1g/mon-3/mon3.lst"
+        ]
+      },
+      "profile": "mon3"
     },
     "glcd-3d": {
       "asm": "src/glcd-3d.asm",
@@ -267,8 +291,12 @@
           "glcd": true,
           "serial": false,
           "matrix": false
-        }
-      }
+        },
+        "extraListings": [
+          "roms/tec1g/mon-3/mon3.lst"
+        ]
+      },
+      "profile": "mon3"
     },
     "matrix-demo": {
       "asm": "src/matrix-demo.asm",
@@ -305,8 +333,12 @@
           "matrix": true,
           "serial": false,
           "glcd": false
-        }
-      }
+        },
+        "extraListings": [
+          "roms/tec1g/mon-3/mon3.lst"
+        ]
+      },
+      "profile": "mon3"
     },
     "matrix-demo-rgb": {
       "asm": "src/matrix-demo-rgb.asm",
@@ -343,8 +375,12 @@
           "matrix": true,
           "serial": false,
           "glcd": false
-        }
-      }
+        },
+        "extraListings": [
+          "roms/tec1g/mon-3/mon3.lst"
+        ]
+      },
+      "profile": "mon3"
     },
     "matrixz80": {
       "asm": "src/matrixz80.asm",
@@ -381,8 +417,12 @@
           "matrix": true,
           "serial": false,
           "glcd": false
-        }
-      }
+        },
+        "extraListings": [
+          "roms/tec1g/mon-3/mon3.lst"
+        ]
+      },
+      "profile": "mon3"
     }
   },
   "projectPlatform": "tec1g",
@@ -391,5 +431,25 @@
       "roms/tec1g/mon-3/mon3.lst"
     ],
     "romHex": "roms/tec1g/mon-3/mon3.bin"
+  },
+  "projectVersion": 2,
+  "defaultProfile": "mon3",
+  "profiles": {
+    "mon3": {
+      "platform": "tec1g",
+      "description": "MON3 monitor profile",
+      "bundledAssets": {
+        "romHex": {
+          "bundleId": "tec1g/mon3/v1",
+          "path": "mon3.bin",
+          "destination": "roms/tec1g/mon-3/mon3.bin"
+        },
+        "listing": {
+          "bundleId": "tec1g/mon3/v1",
+          "path": "mon3.lst",
+          "destination": "roms/tec1g/mon-3/mon3.lst"
+        }
+      }
+    }
   }
 }
