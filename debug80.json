@@ -86,7 +86,8 @@
           "roms/tec1g/mon-3/mon3.lst"
         ]
       },
-      "profile": "mon3"
+      "profile": "mon3",
+      "stopOnEntry": true
     },
     "glcd-demo": {
       "asm": "src/glcd-demo.asm",
