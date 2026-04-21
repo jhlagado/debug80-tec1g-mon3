@@ -1,8 +1,14 @@
 # Build output
 build/
+out/
+dist/
 
 # Local tooling
 .debug80/
 
+# Local VS Code launch; optional (extension also contributes a default)
+.vscode/launch.json
+
 # OS
 .DS_Store
+Thumbs.db
