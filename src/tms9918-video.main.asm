@@ -3,8 +3,9 @@
 ; VDP ports : data=$BE, control=$BF
 ;
 ; This is intentionally minimal. It configures Graphics I mode, defines one
-; visible checkerboard tile, fills the 32x24 name table with that tile, then
-; waits forever. A working TMS9918 panel should show a blue/white checkerboard.
+; visible tile shaped like the letter A, places that tile in the top-left name
+; table cell, then waits forever. A working TMS9918 panel should show one white
+; A on a blue background at the top-left of the video panel.
 
 VDP_DATA        .equ 0BEh
 VDP_CONTROL     .equ 0BFh
@@ -20,9 +21,9 @@ VRAM_SPRITE_PAT .equ 3800h
 Start:
         ld      sp,07fffh
         call    InitVdp
-        call    LoadPattern
-        call    LoadColor
-        call    FillNameTable
+        call    LoadLetterA
+        call    SetLetterColor
+        call    PutLetterOnScreen
 
 Forever:
         jr      Forever
@@ -43,44 +44,31 @@ InitVdpLoop:
         djnz    InitVdpLoop
         ret
 
-LoadPattern:
+LoadLetterA:
         ld      hl,VRAM_PATTERN + 8
         call    SetWriteAddress
-        ld      hl,CheckerPattern
+        ld      hl,LetterA
         ld      b,8
 
-LoadPatternLoop:
+LoadLetterALoop:
         ld      a,(hl)
         out     (VDP_DATA),a
         inc     hl
-        djnz    LoadPatternLoop
+        djnz    LoadLetterALoop
         ret
 
-LoadColor:
+SetLetterColor:
         ld      hl,VRAM_COLOR
         call    SetWriteAddress
-        ld      b,32
         ld      a,0F4h          ; white foreground, dark blue background
-
-LoadColorLoop:
         out     (VDP_DATA),a
-        djnz    LoadColorLoop
         ret
 
-FillNameTable:
+PutLetterOnScreen:
         ld      hl,VRAM_NAME
         call    SetWriteAddress
-        ld      bc,0300h        ; 32 columns * 24 rows
-        ld      a,1             ; tile 1 = checker pattern
-
-FillNameLoop:
+        ld      a,1             ; tile 1 = letter A pattern
         out     (VDP_DATA),a
-        dec     bc
-        ld      d,a
-        ld      a,b
-        or      c
-        ld      a,d
-        jr      nz,FillNameLoop
         ret
 
 SetWriteAddress:
@@ -102,5 +90,5 @@ SetWriteAddress:
 VdpRegisters:
         .db     000h,0C0h,002h,080h,000h,036h,007h,004h
 
-CheckerPattern:
-        .db     0AAh,055h,0AAh,055h,0AAh,055h,0AAh,055h
+LetterA:
+        .db     018h,024h,042h,07Eh,042h,042h,042h,000h
