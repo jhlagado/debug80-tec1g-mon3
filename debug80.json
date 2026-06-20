@@ -382,7 +382,7 @@
             "kind": "rom"
           }
         ],
-        "appStart": 32768,
+        "appStart": 16384,
         "entry": 0,
         "romHex": "roms/tec1g/mon-3/mon3.bin",
         "uiVisibility": {

@@ -1,6 +1,6 @@
 ; TEC-1G TMS9918A demo - 8-sprite maxed-out version with flicker balancing
 ; Target CPU   : Z80
-; Origin       : 8000h
+; Origin       : 4000h
 ; VDP ports    : data=BEh  control=BFh
 ; Display mode : TMS9918A Graphics I, 16x16 sprites enabled
 ;
@@ -27,7 +27,7 @@
 ; Sprite pattern table   3800h
 ;
 ; Program size  : 2617 bytes
-; End address   : 0x8a38
+; End address   : 0x4a38
 ;
 ; Notes
 ; -----
@@ -36,9 +36,9 @@
 ;   logical sprites are emitted to the sprite attribute table each frame.
 ; - Backdrop colour is cycled from PHASE via register 7.
 ;
-        .org     08000h
+        .org     04000h
 
-START:  LD      SP,08FFFh
+START:  LD      SP,07FFFh
         CALL    INITVDP
         CALL    LOADPAT
         CALL    LOADCOL
