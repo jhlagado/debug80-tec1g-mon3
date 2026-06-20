@@ -18,6 +18,7 @@ VRAM_SPRITE_PAT .equ 3800h
         .org    04000h
 
 Start:
+        ld      sp,07fffh
         call    InitVdp
         call    LoadPattern
         call    LoadColor
