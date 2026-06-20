@@ -434,15 +434,15 @@
       },
       "profile": "mon3"
     },
-    "tms9918-damien": {
-      "asm": "src/tms9918-damien.main.asm",
-      "sourceFile": "src/tms9918-damien.main.asm",
+    "tms9918-demo": {
+      "asm": "src/tms9918-demo.main.asm",
+      "sourceFile": "src/tms9918-demo.main.asm",
       "sourceRoots": [
         "src",
         "roms/tec1g/mon-3"
       ],
       "outputDir": "build",
-      "artifactBase": "tms9918-damien",
+      "artifactBase": "tms9918-demo",
       "platform": "tec1g",
       "tec1g": {
         "regions": [
