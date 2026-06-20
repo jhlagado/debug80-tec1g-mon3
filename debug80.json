@@ -354,6 +354,46 @@
       },
       "profile": "mon3"
     },
+    "tms9918-sanity": {
+      "asm": "src/tms9918-sanity.main.asm",
+      "sourceFile": "src/tms9918-sanity.main.asm",
+      "sourceRoots": [
+        "src",
+        "roms/tec1g/mon-3"
+      ],
+      "outputDir": "build",
+      "artifactBase": "tms9918-sanity",
+      "platform": "tec1g",
+      "tec1g": {
+        "regions": [
+          {
+            "start": 0,
+            "end": 2047,
+            "kind": "rom"
+          },
+          {
+            "start": 2048,
+            "end": 32767,
+            "kind": "ram"
+          },
+          {
+            "start": 49152,
+            "end": 65535,
+            "kind": "rom"
+          }
+        ],
+        "appStart": 16384,
+        "entry": 0,
+        "romHex": "roms/tec1g/mon-3/mon3.bin",
+        "uiVisibility": {
+          "tms9918": true,
+          "glcd": false,
+          "serial": false,
+          "matrix": false
+        }
+      },
+      "profile": "mon3"
+    },
     "tms9918-video": {
       "asm": "src/tms9918-video.main.asm",
       "sourceFile": "src/tms9918-video.main.asm",
@@ -363,6 +403,46 @@
       ],
       "outputDir": "build",
       "artifactBase": "tms9918-video",
+      "platform": "tec1g",
+      "tec1g": {
+        "regions": [
+          {
+            "start": 0,
+            "end": 2047,
+            "kind": "rom"
+          },
+          {
+            "start": 2048,
+            "end": 32767,
+            "kind": "ram"
+          },
+          {
+            "start": 49152,
+            "end": 65535,
+            "kind": "rom"
+          }
+        ],
+        "appStart": 16384,
+        "entry": 0,
+        "romHex": "roms/tec1g/mon-3/mon3.bin",
+        "uiVisibility": {
+          "tms9918": true,
+          "glcd": false,
+          "serial": false,
+          "matrix": false
+        }
+      },
+      "profile": "mon3"
+    },
+    "tms9918-damien": {
+      "asm": "src/tms9918-damien.main.asm",
+      "sourceFile": "src/tms9918-damien.main.asm",
+      "sourceRoots": [
+        "src",
+        "roms/tec1g/mon-3"
+      ],
+      "outputDir": "build",
+      "artifactBase": "tms9918-damien",
       "platform": "tec1g",
       "tec1g": {
         "regions": [
