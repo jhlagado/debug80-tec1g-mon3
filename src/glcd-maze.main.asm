@@ -33,36 +33,36 @@
 ;             Remove the Pixels from the LCD Data for that wall.  Make
 ;             the next cell the current cell and PUSH it on the Backtrack Stack
 ;
-		ORG 4000H
+		.org 4000H
 		
 ; Graphics library routines used
-G_INIT_LCD:	EQU 0
-G_SET_GR_MODE:	EQU 4
-G_DRAW_LINE:	EQU 7
-G_FILL_BOX:	EQU 10
-G_DRAW_PIXEL:	EQU 9
-G_PLOT_TO_LCD:	EQU 12
-G_SET_BUF_CLEAR:	EQU 17
-G_SET_BUF_NO_CLEAR:	EQU 18
-G_CLEAR_PIXEL:	EQU 19
-G_FLIP_PIXEL:	EQU 20
+G_INIT_LCD:	.equ 0
+G_SET_GR_MODE:	.equ 4
+G_DRAW_LINE:	.equ 7
+G_FILL_BOX:	.equ 10
+G_DRAW_PIXEL:	.equ 9
+G_PLOT_TO_LCD:	.equ 12
+G_SET_BUF_CLEAR:	.equ 17
+G_SET_BUF_NO_CLEAR:	.equ 18
+G_CLEAR_PIXEL:	.equ 19
+G_FLIP_PIXEL:	.equ 20
 		
 ; Constants
-C_ROOM_SIZE:	EQU 5 			;Room=4, Wall=1 pixel
-C_GRID_SIZE_X:	EQU 25
-C_GRID_SIZE_Y:	EQU 12
-C_START_X:	EQU 0
-C_START_Y:	EQU 0
+C_ROOM_SIZE:	.equ 5 			;Room=4, Wall=1 pixel
+C_GRID_SIZE_X:	.equ 25
+C_GRID_SIZE_Y:	.equ 12
+C_START_X:	.equ 0
+C_START_Y:	.equ 0
 		
 ; Wall Bits.  If Bit is present in Room, then Wall Exist
-C_NORTH_WALL:	EQU 01H 		;Bit 0
-C_WEST_WALL:	EQU 02H 		;Bit 1
-C_SOUTH_WALL:	EQU 04H 		;Bit 2
-C_EAST_WALL:	EQU 08H 		;Bit 3
-C_NOT_VISITED:	EQU 80H 		;Bit 7
+C_NORTH_WALL:	.equ 01H 		;Bit 0
+C_WEST_WALL:	.equ 02H 		;Bit 1
+C_SOUTH_WALL:	.equ 04H 		;Bit 2
+C_EAST_WALL:	.equ 08H 		;Bit 3
+C_NOT_VISITED:	.equ 80H 		;Bit 7
 		
 ; Backtrack Stack Address
-MAZE_SA:	EQU 3000H 		;Top at address 0x3000
+MAZE_SA:	.equ 3000H 		;Top at address 0x3000
 		
 START:	
 		LD A,G_INIT_LCD
@@ -405,8 +405,8 @@ BACKTRACK_POP:
 		RET
 		
 ;RAM Locations.  Move if necessary
-MAZE_DATA:	DS C_GRID_SIZE_X * C_GRID_SIZE_Y
-CURR_CELL:	DW 0000H
-BACKTRACK:	DW MAZE_SA
-RANDNO:	DB 00H
+MAZE_DATA:	.ds C_GRID_SIZE_X * C_GRID_SIZE_Y
+CURR_CELL:	.dw 0000H
+BACKTRACK:	.dw MAZE_SA
+RANDNO:	.db 00H
 		

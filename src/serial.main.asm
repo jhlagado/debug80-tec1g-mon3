@@ -3,13 +3,13 @@
 ; - Bit-banged 8N2 serial on PORTSCAN bit 6 at 4800 baud
 ;   when fast mode is 4 MHz (TEC-1G timing).
 ; - Reads a CR-terminated line into a 64-byte buffer and echoes CR/LF.
-        ORG     0x4000
+        .org     0x4000
 
-KEYBUF:     EQU     0x00
-PORTSCAN:   EQU     0x01
-SERIALMASK: EQU     0x40     ; bit 6 on PORTSCAN
-BAUD:       EQU     0x001B   ; 4800 baud at 4 MHz (TEC-1G bitbang constant)
-BUF_LEN:    EQU     64
+KEYBUF:     .equ     0x00
+PORTSCAN:   .equ     0x01
+SERIALMASK: .equ     0x40     ; bit 6 on PORTSCAN
+BAUD:       .equ     0x001B   ; 4800 baud at 4 MHz (TEC-1G bitbang constant)
+BUF_LEN:    .equ     64
 
 START:  LD      A,SERIALMASK ; idle high
         OUT     (PORTSCAN),A
@@ -141,5 +141,5 @@ BITIME1:
         POP     HL
         RET
 
-MSG:    DB      "TEC-1G MON-3 SERIAL OK",0x0D,0x0A,0
-BUF:    DS      64,0
+MSG:    .db      "TEC-1G MON-3 SERIAL OK",0x0D,0x0A,0
+BUF:    .ds      64,0

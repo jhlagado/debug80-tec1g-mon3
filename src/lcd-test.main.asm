@@ -5,16 +5,16 @@
 ; Uses: A, HL
 ; Clobbers: B (in delay)
 
-        .ORG    0x4000
+        .org    0x4000
 
-LCD_CMD     EQU     0x04
-LCD_DATA    EQU     0x84
+LCD_CMD     .equ    0x04
+LCD_DATA    .equ    0x84
 
 ; HD44780 20x4 DDRAM addresses
-LINE1       EQU     0x80            ; 0x00
-LINE2       EQU     0xC0            ; 0x40
-LINE3       EQU     0x94            ; 0x14
-LINE4       EQU     0xD4            ; 0x54
+LINE1       .equ    0x80            ; 0x00
+LINE2       .equ    0xC0            ; 0x40
+LINE3       .equ    0x94            ; 0x14
+LINE4       .equ    0xD4            ; 0x54
 
 START:
         LD      A,0x01          ; clear display
@@ -70,7 +70,7 @@ DELAY_LOOP:
         RET
 
 ; --- Messages ---
-MSG1:   DB      "TEC-1G  HD44780 LCD",0
-MSG2:   DB      "Z80 @ 3.58MHz",0
-MSG3:   DB      0xE0,0xE2,0xE4,0xE5," ",0xF4," Hello World!",0        ; alpha beta mu sigma  Omega
-MSG4:   DB      0xB1,0xB2,0xB3,0xB4,0xB5," ",0xB6,0xB7,0xB8,0xB9,0xBA," TEC-1G",0  ; katakana: アイウエオ カキクケコ
+MSG1:   .db      "TEC-1G  HD44780 LCD",0
+MSG2:   .db      "Z80 @ 3.58MHz",0
+MSG3:   .db      0xE0,0xE2,0xE4,0xE5," ",0xF4," Hello World!",0        ; alpha beta mu sigma  Omega
+MSG4:   .db      0xB1,0xB2,0xB3,0xB4,0xB5," ",0xB6,0xB7,0xB8,0xB9,0xBA," TEC-1G",0  ; katakana: アイウエオ カキクケコ

@@ -1,6 +1,6 @@
 ; TEC-1G GLCD demo (MON-3 layout, RAM @ 0x4000).
 ; Uses the MON-3 GLCD library (ST7920 graphics mode).
-        ORG     0x4000
+        .org     0x4000
 
 GLCD_INST:  .equ    07H
 GLCD_DATA:  .equ    87H

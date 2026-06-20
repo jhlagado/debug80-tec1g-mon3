@@ -6,17 +6,15 @@
 ;     OUT 0xF9 = blue columns
 ; Same smiley bitmap as matrix-demo.asm; cycles through all 8 colours (incl black).
 
-        ORG     0x4000
+        .org     0x4000
 
-PORT_ROW:       EQU     0x05
-PORT_RED:       EQU     0x06
-PORT_GREEN:     EQU     0xF8
-PORT_BLUE:      EQU     0xF9
+PORT_ROW:       .equ     0x05
+PORT_RED:       .equ     0x06
+PORT_GREEN:     .equ     0xF8
+PORT_BLUE:      .equ     0xF9
 
-ROW_COUNT:      EQU     8
-ROLL_FRAMES:    EQU     8
-
-COLOR:          DB      0
+ROW_COUNT:      .equ     8
+ROLL_FRAMES:    .equ     8
 
 START:  LD      C,0x01
         LD      E,ROLL_FRAMES
@@ -88,14 +86,15 @@ D2:     DEC     C
         POP     BC
         RET
 
-SHAPE:  DB      0
+COLOR:  .db      0
+SHAPE:  .db      0
 
 ROW_DATA:
-        DB      %00111100
-        DB      %01000010
-        DB      %10100101
-        DB      %10000001
-        DB      %10100101
-        DB      %10011001
-        DB      %01000010
-        DB      %00111100
+        .db      %00111100
+        .db      %01000010
+        .db      %10100101
+        .db      %10000001
+        .db      %10100101
+        .db      %10011001
+        .db      %01000010
+        .db      %00111100
