@@ -5,8 +5,7 @@
       "asm": "src/matrix-demo.main.asm",
       "sourceFile": "src/matrix-demo.main.asm",
       "sourceRoots": [
-        "src",
-        "roms/tec1g/mon-3"
+        "src"
       ],
       "outputDir": "build",
       "artifactBase": "matrix-demo",
@@ -31,7 +30,6 @@
         ],
         "appStart": 16384,
         "entry": 0,
-        "romHex": "roms/tec1g/mon-3/mon3.bin",
         "uiVisibility": {
           "matrix": true,
           "serial": false,
@@ -44,8 +42,7 @@
       "asm": "src/matrix-demo-rgb.main.asm",
       "sourceFile": "src/matrix-demo-rgb.main.asm",
       "sourceRoots": [
-        "src",
-        "roms/tec1g/mon-3"
+        "src"
       ],
       "outputDir": "build",
       "artifactBase": "matrix-demo-rgb",
@@ -70,7 +67,6 @@
         ],
         "appStart": 16384,
         "entry": 0,
-        "romHex": "roms/tec1g/mon-3/mon3.bin",
         "uiVisibility": {
           "matrix": true,
           "serial": false,
@@ -83,8 +79,7 @@
       "asm": "src/lcd-test.main.asm",
       "sourceFile": "src/lcd-test.main.asm",
       "sourceRoots": [
-        "src",
-        "roms/tec1g/mon-3"
+        "src"
       ],
       "outputDir": "build",
       "artifactBase": "lcd-test",
@@ -109,7 +104,6 @@
         ],
         "appStart": 16384,
         "entry": 0,
-        "romHex": "roms/tec1g/mon-3/mon3.bin",
         "uiVisibility": {
           "lcd": true,
           "serial": false,
@@ -124,8 +118,7 @@
       "asm": "src/serial.main.asm",
       "sourceFile": "src/serial.main.asm",
       "sourceRoots": [
-        "src",
-        "roms/tec1g/mon-3"
+        "src"
       ],
       "outputDir": "build",
       "artifactBase": "serial",
@@ -150,7 +143,6 @@
         ],
         "appStart": 16384,
         "entry": 0,
-        "romHex": "roms/tec1g/mon-3/mon3.bin",
         "uiVisibility": {
           "serial": true,
           "glcd": false,
@@ -163,8 +155,7 @@
       "asm": "src/glcd-demo.main.asm",
       "sourceFile": "src/glcd-demo.main.asm",
       "sourceRoots": [
-        "src",
-        "roms/tec1g/mon-3"
+        "src"
       ],
       "outputDir": "build",
       "artifactBase": "glcd-demo",
@@ -189,7 +180,6 @@
         ],
         "appStart": 16384,
         "entry": 0,
-        "romHex": "roms/tec1g/mon-3/mon3.bin",
         "uiVisibility": {
           "glcd": true,
           "serial": false,
@@ -202,8 +192,7 @@
       "asm": "src/glcd-text.main.asm",
       "sourceFile": "src/glcd-text.main.asm",
       "sourceRoots": [
-        "src",
-        "roms/tec1g/mon-3"
+        "src"
       ],
       "outputDir": "build",
       "artifactBase": "glcd-text",
@@ -228,7 +217,6 @@
         ],
         "appStart": 16384,
         "entry": 0,
-        "romHex": "roms/tec1g/mon-3/mon3.bin",
         "uiVisibility": {
           "glcd": true,
           "serial": false,
@@ -241,8 +229,7 @@
       "asm": "src/glcd-mad.main.asm",
       "sourceFile": "src/glcd-mad.main.asm",
       "sourceRoots": [
-        "src",
-        "roms/tec1g/mon-3"
+        "src"
       ],
       "outputDir": "build",
       "artifactBase": "glcd-mad",
@@ -267,7 +254,6 @@
         ],
         "appStart": 16384,
         "entry": 0,
-        "romHex": "roms/tec1g/mon-3/mon3.bin",
         "uiVisibility": {
           "glcd": true,
           "serial": false,
@@ -280,8 +266,7 @@
       "asm": "src/glcd-maze.main.asm",
       "sourceFile": "src/glcd-maze.main.asm",
       "sourceRoots": [
-        "src",
-        "roms/tec1g/mon-3"
+        "src"
       ],
       "outputDir": "build",
       "artifactBase": "glcd-maze",
@@ -306,7 +291,6 @@
         ],
         "appStart": 16384,
         "entry": 0,
-        "romHex": "roms/tec1g/mon-3/mon3.bin",
         "uiVisibility": {
           "glcd": true,
           "serial": false,
@@ -319,8 +303,7 @@
       "asm": "src/glcd-3d.main.asm",
       "sourceFile": "src/glcd-3d.main.asm",
       "sourceRoots": [
-        "src",
-        "roms/tec1g/mon-3"
+        "src"
       ],
       "outputDir": "build",
       "artifactBase": "glcd-3d",
@@ -345,7 +328,6 @@
         ],
         "appStart": 16384,
         "entry": 0,
-        "romHex": "roms/tec1g/mon-3/mon3.bin",
         "uiVisibility": {
           "glcd": true,
           "serial": false,
@@ -358,8 +340,7 @@
       "asm": "src/tms9918-sanity.main.asm",
       "sourceFile": "src/tms9918-sanity.main.asm",
       "sourceRoots": [
-        "src",
-        "roms/tec1g/mon-3"
+        "src"
       ],
       "outputDir": "build",
       "artifactBase": "tms9918-sanity",
@@ -384,7 +365,6 @@
         ],
         "appStart": 16384,
         "entry": 0,
-        "romHex": "roms/tec1g/mon-3/mon3.bin",
         "uiVisibility": {
           "tms9918": true,
           "glcd": false,
@@ -398,8 +378,7 @@
       "asm": "src/tms9918-video.main.asm",
       "sourceFile": "src/tms9918-video.main.asm",
       "sourceRoots": [
-        "src",
-        "roms/tec1g/mon-3"
+        "src"
       ],
       "outputDir": "build",
       "artifactBase": "tms9918-video",
@@ -424,7 +403,6 @@
         ],
         "appStart": 16384,
         "entry": 0,
-        "romHex": "roms/tec1g/mon-3/mon3.bin",
         "uiVisibility": {
           "tms9918": true,
           "glcd": false,
@@ -438,8 +416,7 @@
       "asm": "src/tms9918-demo.main.asm",
       "sourceFile": "src/tms9918-demo.main.asm",
       "sourceRoots": [
-        "src",
-        "roms/tec1g/mon-3"
+        "src"
       ],
       "outputDir": "build",
       "artifactBase": "tms9918-demo",
@@ -464,7 +441,6 @@
         ],
         "appStart": 16384,
         "entry": 0,
-        "romHex": "roms/tec1g/mon-3/mon3.bin",
         "uiVisibility": {
           "tms9918": true,
           "glcd": false,
@@ -476,9 +452,6 @@
     }
   },
   "projectPlatform": "tec1g",
-  "tec1g": {
-    "romHex": "roms/tec1g/mon-3/mon3.bin"
-  },
   "projectVersion": 2,
   "defaultProfile": "mon3",
   "profiles": {
@@ -488,8 +461,11 @@
       "bundledAssets": {
         "romHex": {
           "bundleId": "tec1g/mon3/v1",
-          "path": "mon3.bin",
-          "destination": "roms/tec1g/mon-3/mon3.bin"
+          "path": "mon3.bin"
+        },
+        "debugMap": {
+          "bundleId": "tec1g/mon3/v1",
+          "path": "mon3.d8.json"
         }
       }
     }
